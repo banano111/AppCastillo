@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="40dp"
+    android:background="@drawable/gradient"
+    android:gravity="center"
+    tools:context=".NewUser">
+
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:paddingVertical="30dp"
+        android:backgroundTint="#FFFF"
+        android:textColor="#FFFF"
+        android:textColorHint="#FFFF"
+        android:hint="Nombre"
+         />
+
+    <EditText
+        android:id="@+id/apellidoP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:paddingVertical="30dp"
+        android:backgroundTint="#FFFF"
+        android:textColor="#FFFF"
+        android:textColorHint="#FFFF"
+        android:hint="Apellido Paterno"
+        />
+
+    <EditText
+        android:id="@+id/apellidoM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:paddingVertical="30dp"
+        android:backgroundTint="#FFFF"
+        android:textColor="#FFFF"
+        android:textColorHint="#FFFF"
+        android:hint="Apellido Materno"
+        />
+
+    <EditText
+        android:id="@+id/deporteF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:paddingVertical="30dp"
+        android:backgroundTint="#FFFF"
+        android:textColor="#FFFF"
+        android:textColorHint="#FFFF"
+        android:hint="Deporte Favorito"
+        />
+
+    <Button
+        android:id="@+id/botonSaveUser"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/rounded_button"
+        android:text="Alta de Usuario"
+        android:textSize="9pt" />
+    <Button
+        android:id="@+id/botonCasa"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="Regresar a Casa"
+        android:textSize="9pt" />
+
+</LinearLayout>

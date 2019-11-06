@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="40dp"
+    android:gravity="center"
+    android:background="@drawable/gradient"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/botonAltaUser"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="30dp"
+        android:textSize="9pt"
+        android:background="@drawable/rounded_button"
+        android:text="Alta de Usuarios" />
+
+    <Button
+        android:id="@+id/botonModUsers"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="30dp"
+        android:layout_marginTop="40dp"
+        android:textSize="9pt"
+        android:background="@drawable/rounded_button"
+        android:text="Modificacion de Usuarios" />
+
+    <Button
+        android:id="@+id/botonViewUser"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="30dp"
+        android:layout_marginTop="40dp"
+        android:textSize="9pt"
+        android:background="@drawable/rounded_button"
+        android:text="Ver Usuarios" />
+
+</LinearLayout>
