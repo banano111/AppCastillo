@@ -53,6 +53,6 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return nombreUser;
+        return nombreUser + " " + apellidoPUser + " " + apellidoMUser;
     }
 }
