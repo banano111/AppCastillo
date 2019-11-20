@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lista de Usuarios Con Git"
+        android:text="Lista de Usuarios"
         android:textColor="#FFFF"
         android:textSize="30dp" />
 
