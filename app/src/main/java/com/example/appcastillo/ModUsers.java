@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,7 +41,7 @@ public class ModUsers extends AppCompatActivity {
 
     private List<Usuario> listPerson = new ArrayList<>();
     ArrayAdapter<Usuario> arrayAdapterPersona;
-    
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -68,86 +70,6 @@ public class ModUsers extends AppCompatActivity {
             });
 
 
-            btnSave = findViewById(R.id.botonSave);
-
-            btnSave.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    String name = nombre.getText().toString();
-                    String apeP = apellidoP.getText().toString();
-                    String apeM = apellidoM.getText().toString();
-                    String dep = deporteF.getText().toString();
-
-                    if (name.equals("") || apeP.equals("") || apeM.equals("") || dep.equals("")) {
-                        validacion();
-                    } else {
-                        Usuario user = new Usuario();
-
-                        user.setUid(usuarioSelected.getUid());
-                        user.setNombreUser(nombre.getText().toString().trim());
-                        user.setApellidoPUser(apellidoP.getText().toString().trim());
-                        user.setApellidoMUser(apellidoM.getText().toString().trim());
-                        user.setDeporteUser(deporteF.getText().toString().trim());
-
-                        databaseReference.child("Usuario").child(user.getUid()).setValue(user);
-
-                        Toast.makeText(getApplicationContext(), "Usuario Actualizado, Gracias", Toast.LENGTH_SHORT).show();
-                        limpiaDatos();
-                    }
-
-                }
-
-                    private void limpiaDatos() {
-
-                        nombre.setText("");
-                        apellidoP.setText("");
-                        apellidoM.setText("");
-                        deporteF.setText("");
-                    }
-
-                    private void validacion() {
-
-                        String nameVal = nombre.getText().toString();
-                        String apePVal = apellidoP.getText().toString();
-                        String apeMVal = apellidoM.getText().toString();
-                        String depVal = deporteF.getText().toString();
-
-                        if (nameVal.equals("")) {
-                            nombre.setError("Ingrese Nombre");
-                        } else if (apePVal.equals("")) {
-                            apellidoP.setError("Ingrese Apellido Paterno");
-                        } else if (apeMVal.equals("")) {
-                            apellidoM.setError("Ingrese Apellido Materno");
-                        } else if (depVal.equals("")) {
-                            deporteF.setError("Ingrese Deporte Favorito");
-                        }
-                    }
-
-                });
-
-            btnDelete = findViewById(R.id.botonDelete);
-
-            btnDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Usuario user = new Usuario();
-                    user.setUid(usuarioSelected.getUid());
-                    databaseReference.child("Usuario").child(user.getUid()).removeValue();
-                    Toast.makeText(getApplicationContext(),"Usuario Eliminado", Toast.LENGTH_SHORT).show();
-                    limpiaDatos();
-
-                }
-
-                private void limpiaDatos() {
-
-                    nombre.setText("");
-                    apellidoP.setText("");
-                    apellidoM.setText("");
-                    deporteF.setText("");
-                }
-            });
 
 
             btnCasa = findViewById(R.id.botonCasa);
@@ -195,5 +117,83 @@ public class ModUsers extends AppCompatActivity {
 
 
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        String name = nombre.getText().toString();
+        String apeP = apellidoP.getText().toString();
+        String apeM = apellidoM.getText().toString();
+        String dep = deporteF.getText().toString();
+
+
+        switch (item.getItemId()){
+
+            case R.id.icon_home:{
+                Intent casa = new Intent(ModUsers.this , MainActivity.class);
+                startActivity(casa);
+            }
+
+            case R.id.icon_save:{
+                if (name.equals("") || apeP.equals("") || apeM.equals("") || dep.equals("")) {
+                    validacion();
+                } else {
+                    Usuario user = new Usuario();
+
+                    user.setUid(usuarioSelected.getUid());
+                    user.setNombreUser(nombre.getText().toString().trim());
+                    user.setApellidoPUser(apellidoP.getText().toString().trim());
+                    user.setApellidoMUser(apellidoM.getText().toString().trim());
+                    user.setDeporteUser(deporteF.getText().toString().trim());
+
+                    databaseReference.child("Usuario").child(user.getUid()).setValue(user);
+
+                    Toast.makeText(getApplicationContext(), "Usuario Actualizado, Gracias", Toast.LENGTH_SHORT).show();
+                    limpiaDatos();
+                }
+
+            }
+            case R.id.icon_delete:{
+                Usuario user = new Usuario();
+                user.setUid(usuarioSelected.getUid());
+                databaseReference.child("Usuario").child(user.getUid()).removeValue();
+                Toast.makeText(this,"Eliminado", Toast.LENGTH_LONG).show();
+                limpiaDatos();
+                break;
+            }
+            default:break;
+        }
+        return true;
+    }
+
+    private void limpiaDatos() {
+        nombre.setText("");
+        apellidoP.setText("");
+        apellidoM.setText("");
+        deporteF.setText("");
+    }
+
+    private void validacion() {
+        String nameVal = nombre.getText().toString();
+        String apePVal = apellidoP.getText().toString();
+        String apeMVal = apellidoM.getText().toString();
+        String depVal = deporteF.getText().toString();
+
+        if (nameVal.equals("")) {
+            nombre.setError("Ingrese Nombre");
+        } else if (apePVal.equals("")) {
+            apellidoP.setError("Ingrese Apellido Paterno");
+        } else if (apeMVal.equals("")) {
+            apellidoM.setError("Ingrese Apellido Materno");
+        } else if (depVal.equals("")) {
+            deporteF.setError("Ingrese Deporte Favorito");
+        }
     }
 }
