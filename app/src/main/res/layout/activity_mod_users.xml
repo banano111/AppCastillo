@@ -26,27 +26,10 @@
             android:textColor="#FFFF"
             android:textSize="30dp" />
 
-
-        <Button
-            android:id="@+id/botonSave"
-            style="@style/Widget.AppCompat.Button"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_button"
-            android:text="Guardar Usuario"
-            android:textSize="9pt" />
-
-        <Button
-            android:id="@+id/botonDelete"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_button"
-            android:text="Eliminar Usuario"
-            android:textSize="9pt" />
-
+            android:layout_height="wrap_content"
+            >
         <EditText
             android:id="@+id/nombre"
             android:layout_width="match_parent"
@@ -58,42 +41,59 @@
             android:textColorHint="#FFFF"
             android:hint="Nombre"
             />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/apellidoP"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:paddingVertical="20dp"
-            android:backgroundTint="#FFFF"
-            android:textColor="#FFFF"
-            android:textColorHint="#FFFF"
-            android:hint="Apellido Paterno"
-            />
+            >
+            <EditText
+                android:id="@+id/apellidoP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:paddingVertical="20dp"
+                android:backgroundTint="#FFFF"
+                android:textColor="#FFFF"
+                android:textColorHint="#FFFF"
+                android:hint="Apellido Paterno"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/apellidoM"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:paddingVertical="20dp"
-            android:backgroundTint="#FFFF"
-            android:textColor="#FFFF"
-            android:textColorHint="#FFFF"
-            android:hint="Apellido Materno"
-            />
+            >
+            <EditText
+                android:id="@+id/apellidoM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:paddingVertical="20dp"
+                android:backgroundTint="#FFFF"
+                android:textColor="#FFFF"
+                android:textColorHint="#FFFF"
+                android:hint="Apellido Materno"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/deporteF"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:paddingVertical="30dp"
-            android:backgroundTint="#FFFF"
-            android:textColor="#FFFF"
-            android:textColorHint="#FFFF"
-            android:hint="Deporte Favorito"
-            />
+            >
+            <EditText
+                android:id="@+id/deporteF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:paddingVertical="20dp"
+                android:backgroundTint="#FFFF"
+                android:textColor="#FFFF"
+                android:textColorHint="#FFFF"
+                android:hint="Deporte Favorito"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
 
         <ListView
