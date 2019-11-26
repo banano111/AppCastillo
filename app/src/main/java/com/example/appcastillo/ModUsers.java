@@ -31,7 +31,6 @@ import java.util.UUID;
 public class ModUsers extends AppCompatActivity {
 
     ListView usuariosBD;
-    Button btnCasa, btnSave, btnDelete;
     EditText nombre, apellidoP,apellidoM,deporteF;
 
     FirebaseDatabase firebaseDatabase;
@@ -68,25 +67,6 @@ public class ModUsers extends AppCompatActivity {
                     deporteF.setText(usuarioSelected.getDeporteUser());
                 }
             });
-
-
-
-
-            btnCasa = findViewById(R.id.botonCasa);
-
-            btnCasa.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Intent casa = new Intent(ModUsers.this , MainActivity.class);
-
-                    startActivity(casa);
-
-
-                }
-            });
-
-
     }
 
     private void inicializarFirebase() {
@@ -160,6 +140,7 @@ public class ModUsers extends AppCompatActivity {
                 }
 
             }
+            break;
             case R.id.icon_delete:{
                 Usuario user = new Usuario();
                 user.setUid(usuarioSelected.getUid());

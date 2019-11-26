@@ -4,10 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.appcastillo.modelos.Usuario;
 import com.google.firebase.FirebaseApp;
@@ -23,7 +24,6 @@ import java.util.List;
 public class ViewUsers extends AppCompatActivity {
 
     ListView usuariosBD;
-    Button btnCasa;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -42,24 +42,34 @@ public class ViewUsers extends AppCompatActivity {
         inicializarFirebase();
         listarDatos();
 
-        btnCasa = findViewById(R.id.botonCasa);
-
-        btnCasa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent casa = new Intent(ViewUsers.this , MainActivity.class);
-
-                startActivity(casa);
-
-            }
-        });
     }
 
     private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.icon_home:{
+                Intent casa = new Intent(ViewUsers.this , MainActivity.class);
+                startActivity(casa);
+                Toast.makeText(getApplicationContext(),"Saliendo a Home", Toast.LENGTH_SHORT).show();
+                break;
+            }
+
+            default:break;
+        }
+        return true;
     }
 
     private void listarDatos() {
