@@ -119,6 +119,7 @@ public class ModUsers extends AppCompatActivity {
             case R.id.icon_home:{
                 Intent casa = new Intent(ModUsers.this , MainActivity.class);
                 startActivity(casa);
+                Toast.makeText(getApplicationContext(), "Saliendo a Home", Toast.LENGTH_SHORT).show();
             }
 
             case R.id.icon_save:{
@@ -145,7 +146,7 @@ public class ModUsers extends AppCompatActivity {
                 Usuario user = new Usuario();
                 user.setUid(usuarioSelected.getUid());
                 databaseReference.child("Usuario").child(user.getUid()).removeValue();
-                Toast.makeText(this,"Eliminado", Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Usuario Eliminado", Toast.LENGTH_LONG).show();
                 limpiaDatos();
                 break;
             }

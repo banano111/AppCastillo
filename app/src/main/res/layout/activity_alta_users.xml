@@ -4,10 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="40dp"
+    android:paddingHorizontal="30dp"
     android:background="@drawable/gradient"
     android:gravity="center"
     tools:context=".NewUser">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alta de Usuarios"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:textColor="#FFFF"
+        android:textSize="30dp"/>
 
 
     <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
